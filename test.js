@@ -47,6 +47,17 @@ describe('.convert -', function () {
 
     });
 
+    it('should be able to convert animated images', function () {
+
+        return easyimg.convert({src:'ladybug.gif', dst:'./output/convert.png'}).then(function (file) {
+            file.should.be.a('object');
+            file.should.have.property('type');
+            file.type.should.be.equal('PNG');
+            file.name.should.be.equal('convert.png');
+        });
+
+    });
+
 });
 
 describe('.resize -', function () {
